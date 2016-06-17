@@ -23,6 +23,15 @@
         </listener-class>
     </listener>
 
+    <filter>
+        <filter-name>encodingFiler</filter-name>
+        <filter-class>com.capsui.servelt.filter.CharactorEncodingFiler</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>encodingFiler</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
 
     <servlet>
         <servlet-name>dispatch</servlet-name>
@@ -38,8 +47,8 @@
         <servlet-name>dispatch</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
-    
-     <welcome-file-list>
-         <welcome-file>home.do</welcome-file>
-     </welcome-file-list>
+
+    <welcome-file-list>
+        <welcome-file>home.do</welcome-file>
+    </welcome-file-list>
 </web-app>
