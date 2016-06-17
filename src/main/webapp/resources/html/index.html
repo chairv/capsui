@@ -3,8 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="../../js/angular.min.js"></script>
 </head>
 <body>
-   你好,首页....
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+<!--appId : <input type="text" ng-model="appid"><br>-->
+<!--appsert: <input type="text" ng-model="appsecrt"><br>-->
+<!--token: {{token()}}-->
+<!--</div>-->
+
+<!--<div ng-app="" ng-init="mySwitch=true">-->
+<!--<button ng-disabled="mySwitch">click</button>-->
+<!--<p>-->
+<!--<input type="checkbox" ng-model="mySwitch">按钮-->
+<!--</p>-->
+<!--{{mySwitch}}-->
+<!--</div>-->
+
+<!--<div ng-app="">-->
+<!--<p ng-show="true">可见</p>-->
+<!--<p ng-show="false">不可见</p>-->
+<!--</div>-->
+
+<div ng-app="myApp" ng-controller="myCtrl">
+    <button ng-click="count = count +1">点我!</button>
+    <p>{{count}}</p>
+    <p>{{url}}</p>
+    <p>{{token}}</p>
+</div>
+
+<script>
+    //    var app = angular.module("myApp", []);
+    //    app.controller('myCtrl', function ($scope) {
+    //        $scope.appid = "test";
+    //        $scope.appsecrt = "ddwo";
+    //        $scope.token = function () {
+    //            return $scope.appid + $scope.appsecrt;
+    //        }
+    //    })
+    var app = angular.module('myApp', []);
+//    app.service('token', function ($http) {
+//        this.get = function (appid, appserc) {
+//            $http.get('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + appid + '&secret=' + appserc, function (response) {
+//                return response.data;
+//            });
+//        }
+//    });
+    app.controller('myCtrl', function ($scope, $location, $http) {
+        $scope.count = 0;
+        $scope.url = $location.absUrl();
+//        $http.get('home.do').then(function (response) {
+//                  $scope.myWelcome = response.data;
+//        })
+        var appid = 'wx62aa1895c2c35ffd';
+        var appserc = 'e2a12b12d7fe55822cb5186c6ee19f2a';
+        var url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + appid + '&secret=' + appserc;
+//         $http.get(url,function (response) {
+//             $scope.token = response.data;
+//         })
+        $http.jsonp(url).success(function (msg) {
+            $scope.token = msg;
+        });
+    });
+
+</script>
 </body>
 </html>
