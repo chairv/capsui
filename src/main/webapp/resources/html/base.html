@@ -3,8 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>base</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-  显示base
+<div style="width: 200px;">
+    <div class="panel-group" id="accordion2">
+        <div class="panel-heading">
+            <!--<strong style="font-size: 30px;">论坛分类</strong>-->
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse"
+                 data-parent="#accordion2" href="#collapseOne">
+                <a class="accordion-toggle">Java</a>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse"
+                 style="height: 0px;">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">Java基础</a></li>
+                        <li><a href="#">Java面向对象</a></li>
+                        <li><a href="#">Java核心API</a></li>
+                        <li><a href="#">JavaEE</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse"
+                 data-parent="#accordion2" href="#collapseTwo">
+                <a class="accordion-toggle">数据库</a>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse"
+                 style="height: 0px;">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">SQL基础</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">MySQL</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse"
+                 data-parent="#accordion2" href="#collapseThree">
+                <a class="accordion-toggle">技术前沿</a>
+            </div>
+            <div id="collapseThree" class="panel-collapse in"
+                 style="height: 0px;">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">NoSQL</a></li>
+                        <li><a href="#">Hadoop</a></li>
+                        <li><a href="#">WebService</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
