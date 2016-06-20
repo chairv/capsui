@@ -57,7 +57,7 @@
 <!-- Page Content -->
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 col-lg-3 col-sm-3">
             <div class="panel-group" id="accordion2">
                 <!--<div class="panel-heading">-->
                 <!--&lt;!&ndash;&lt;!&ndash;<strong style="font-size: 30px;">论坛分类</strong>&ndash;&gt;&ndash;&gt;-->
@@ -79,7 +79,7 @@
             </div>
         </div>
 
-        <div class="col-md-9" id="content-right">
+        <div class="col-md-9 col-lg-9 col-sm-9" id="content-right">
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -89,21 +89,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>红包通知</td>
-                    <td>{{first.DATA}} 获赠金额：{{present_income.DATA}} {{remark.DATA}}</td>
-                    <td><i class="icon-bar"/></td>
+                <tr ng-repeat="content in contents">
+                    <td>{{content.title}}</td>
+                    <td>{{content.content}}</td>
+                    <td>操作</td>
                 </tr>
-                <tr>
-                    <td>领取成功通知</td>
-                    <td>{{first.DATA}} 领取人：{{toName.DATA}} 赠品：{{gift.DATA}} 领取时间：{{time.DATA}} {{remark.DATA}}</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>个人理财账单通知</td>
-                    <td>{{first.DATA}} 账单月份：{{keyword1.DATA}} 累计收益：{{keyword2.DATA}} 累计充值：{{keyword3.DATA}} 累计提现：{{keyword4.DATA}} 累计手续费：{{keyword5.DATA}} {{remark.DATA}}</td>
-                    <td>july@example.com</td>
-                </tr>
+                <!--<tr>-->
+                    <!--<td>领取成功通知</td>-->
+                    <!--<td>{{first.DATA}} 领取人：{{toName.DATA}} 赠品：{{gift.DATA}} 领取时间：{{time.DATA}} {{remark.DATA}}</td>-->
+                    <!--<td>mary@example.com</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>个人理财账单通知</td>-->
+                    <!--<td>{{first.DATA}} 账单月份：{{keyword1.DATA}} 累计收益：{{keyword2.DATA}} 累计充值：{{keyword3.DATA}} 累计提现：{{keyword4.DATA}} 累计手续费：{{keyword5.DATA}} {{remark.DATA}}</td>-->
+                    <!--<td>july@example.com</td>-->
+                <!--</tr>-->
                 </tbody>
             </table>
         </div>  <!--col-sm9-->

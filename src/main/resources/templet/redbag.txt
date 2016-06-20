@@ -1,0 +1,19 @@
+{
+           "touser":"o3dQDuMaR9knhspsG3XiCfAFAH-k",
+           "template_id":"HJx7LfqyL6CozGEOW60EVhqo4C-DKqlqW79ZKIdq0zQ",
+           "url":"http://weixin.qq.com/download",
+           "data":{
+                   "first": {
+                       "value":"恭喜你购买成功！",
+                       "color":"#173177"
+                   },
+                   "present_income":{
+                       "value":"巧克力",
+                       "color":"#173177"
+                   },
+                   "remark":{
+                       "value":"欢迎再次购买！",
+                       "color":"#173177"
+                   }
+           }
+       }

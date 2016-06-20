@@ -1,0 +1,5 @@
+[
+  {"title":"红包通知","content":"{{first.DATA}} 获赠金额：{{present_income.DATA}} {{remark.DATA}}"},
+  {"title":"领取成功通知","content":"{{first.DATA}} 领取人：{{toName.DATA}} 赠品：{{gift.DATA}} 领取时间：{{time.DATA}} {{remark.DATA}}"},
+  {"title":"个人理财账单通知","content":"{{first.DATA}} 账单月份：{{keyword1.DATA}} 累计收益：{{keyword2.DATA}} 累计充值：{{keyword3.DATA}} 累计提现：{{keyword4.DATA}} 累计手续费：{{keyword5.DATA}} {{remark.DATA}}"}
+]

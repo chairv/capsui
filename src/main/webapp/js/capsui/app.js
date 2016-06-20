@@ -8,4 +8,11 @@ app.controller("myCtrl", function ($scope, $http) {
         console.info(response);
         $scope.menus = response;
     });
+
+    $http.get("json/content.json").success(function (response) {
+        console.info(response);
+        $scope.contents = response;
+    }).error(function (data, status, headers, config) {
+        console.info(data);
+    });
 });
