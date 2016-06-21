@@ -13,8 +13,9 @@ app.controller("myIndex", function ($scope, $http, $cookies,$location,$rootScope
     }).error(function (data, status, headers, config) {
         console.info(data);
     });
-    var absUrl = $location.absUrl();
-    $rootScope.path = absUrl;
+    var path = $location.absUrl(); // will tell you the current path
+    path = path.substr(0,path.lastIndexOf('/'))
+    $rootScope.path = path;
 });
 
 app.controller('nav', function ($cookies, $scope) {
@@ -41,3 +42,7 @@ app.controller("myTest", function ($cookies, $scope, $rootScope) {
         $rootScope.access_token = token;
     }
 )
+
+app.controller('myHome',function () {
+    
+});
