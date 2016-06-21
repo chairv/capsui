@@ -1,71 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app" ng-controller="myCtrl">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="../../js/angular.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Capsui 微信消息测试</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../../css/shop-homepage.css" rel="stylesheet">
+    <link href="../../iconfont/iconfont.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        .go_more{
+            color: green;
+        }
+        .go_more:hover {
+            color: red;
+        }
+    </style>
+
 </head>
+
 <body>
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
-<!--appId : <input type="text" ng-model="appid"><br>-->
-<!--appsert: <input type="text" ng-model="appsecrt"><br>-->
-<!--token: {{token()}}-->
-<!--</div>-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <i class="icon iconfont">&#xe6f7;</i>
+                Capsui
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="index.html">首页</a>
+                </li>
+                <li>
+                    <a href="resources/html/test.html">测试</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
-<!--<div ng-app="" ng-init="mySwitch=true">-->
-<!--<button ng-disabled="mySwitch">click</button>-->
-<!--<p>-->
-<!--<input type="checkbox" ng-model="mySwitch">按钮-->
-<!--</p>-->
-<!--{{mySwitch}}-->
-<!--</div>-->
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-lg-3 col-sm-3">
+            <div class="panel-group" id="accordion2">
+                <!--<div class="panel-heading">-->
+                <!--&lt;!&ndash;&lt;!&ndash;<strong style="font-size: 30px;">论坛分类</strong>&ndash;&gt;&ndash;&gt;-->
+                <!--</div>-->
+                <div class="panel panel-default" ng-repeat="menu in menus">
+                    <div class="panel-heading" data-toggle="collapse"
+                         data-parent="#accordion2" href="#{{menu.first_class}}">
+                        <a class="accordion-toggle">{{menu.first_class}}</a>
+                    </div>
+                    <div id="{{menu.first_class}}" class="panel-collapse collapse"
+                         style="height: 0px;">
+                        <div class="panel-body">
+                            <ul class="nav nav-pills nav-stacked" ng-repeat="sub in menu.second_classes">
+                                <li><a href="#" data-url="{{sub.location}}">{{sub.name}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!--<div ng-app="">-->
-<!--<p ng-show="true">可见</p>-->
-<!--<p ng-show="false">不可见</p>-->
-<!--</div>-->
+        <div class="col-md-9 col-lg-9 col-sm-9" id="content-right">
+            <table class="table table-hover">
+                <colgroup>
+                    <col width="15%"/>
+                    <col width="80%"/>
+                    <col width="5%"/>
+                </colgroup>
 
-<div ng-app="myApp" ng-controller="myCtrl">
-    <button ng-click="count = count +1">点我!</button>
-    <p>{{count}}</p>
-    <p>{{url}}</p>
-    <p>{{token}}</p>
+                <thead>
+                <tr>
+                    <th>模板标题</th>
+                    <th>模板内容</th>
+                    <th>more</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="content in contents">
+                    <td>{{content.title}}</td>
+                    <td>{{content.content}}</td>
+                    <td>
+                        <i class="icon iconfont go_more">&#xe607;</i>
+                    </td>
+                </tr>
+                <!--<tr>-->
+                <!--<td>领取成功通知</td>-->
+                <!--<td>{{first.DATA}} 领取人：{{toName.DATA}} 赠品：{{gift.DATA}} 领取时间：{{time.DATA}} {{remark.DATA}}</td>-->
+                <!--<td>mary@example.com</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                <!--<td>个人理财账单通知</td>-->
+                <!--<td>{{first.DATA}} 账单月份：{{keyword1.DATA}} 累计收益：{{keyword2.DATA}} 累计充值：{{keyword3.DATA}} 累计提现：{{keyword4.DATA}} 累计手续费：{{keyword5.DATA}} {{remark.DATA}}</td>-->
+                <!--<td>july@example.com</td>-->
+                <!--</tr>-->
+                </tbody>
+            </table>
+        </div>  <!--col-sm9-->
+
+
+    </div>
+
 </div>
 
-<script>
-    //    var app = angular.module("myApp", []);
-    //    app.controller('myCtrl', function ($scope) {
-    //        $scope.appid = "test";
-    //        $scope.appsecrt = "ddwo";
-    //        $scope.token = function () {
-    //            return $scope.appid + $scope.appsecrt;
-    //        }
-    //    })
-    var app = angular.module('myApp', []);
-//    app.service('token', function ($http) {
-//        this.get = function (appid, appserc) {
-//            $http.get('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + appid + '&secret=' + appserc, function (response) {
-//                return response.data;
-//            });
-//        }
-//    });
-    app.controller('myCtrl', function ($scope, $location, $http) {
-        $scope.count = 0;
-        $scope.url = $location.absUrl();
-//        $http.get('home.do').then(function (response) {
-//                  $scope.myWelcome = response.data;
-//        })
-        var appid = 'wx62aa1895c2c35ffd';
-        var appserc = 'e2a12b12d7fe55822cb5186c6ee19f2a';
-        var url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + appid + '&secret=' + appserc;
-//         $http.get(url,function (response) {
-//             $scope.token = response.data;
-//         })
-        $http.jsonp(url).success(function (msg) {
-            $scope.token = msg;
-        });
-    });
+</div>
+<!-- /.container -->
 
+<!--<div class="container">-->
+<!--<hr>-->
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<footer>-->
+<!--<div class="row">-->
+<!--<div class="col-lg-12">-->
+<!--<p>Copyright &copy; Your Website 2014</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</footer>-->
+
+<!--</div>-->
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="../../js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/angular.min.js"></script>
+<script src="../../js/capsui/app.js"></script>
+<script>
+    $('#accordion2 .panel-body').on('click', 'a', function () {
+        var url = $(this).attr("data-url");
+        if (url == null || url == '#') {
+            return;
+        }
+        $('#content-right').load(url);
+        ;
+    });
 </script>
 </body>
+
 </html>
