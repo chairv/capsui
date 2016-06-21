@@ -1,0 +1,21 @@
+<form class="form-horizontal" ng-controller="register" ng-submit="submit()">
+    <div class="form-group">
+        <label for="openId" class="col-sm-2 control-label">测试微信号: </label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="openId" placeholder="测试微信号" ng-model="openId">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="toekn" class="col-sm-2 control-label">access_token: </label>
+        <div class="col-sm-4">
+            <textarea type="text" class="form-control" id="toekn" placeholder="access_token" ng-model="access_token" cols="5"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-5 col-sm-5">
+            <button type="submit" class="btn btn-success">加载</button>
+        </div>
+    </div>
+
+    {{list}}
+</form>

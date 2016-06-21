@@ -11,6 +11,6 @@ public class IndexController {
 
 	@RequestMapping("home")
 	public String home() {
-		return "index.html";
+		return "resources/html/index.html";
 	}
 }

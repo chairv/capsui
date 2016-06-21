@@ -1,0 +1,13 @@
+.go_more{
+    color: green;
+}
+.go_more:hover {
+    color: red;
+}
+
+.go_run{
+    color: green;
+}
+.go_run:hover {
+    color: red;
+}

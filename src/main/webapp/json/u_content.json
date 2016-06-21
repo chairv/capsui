@@ -1,0 +1,52 @@
+[
+  {
+    "content": "{{first.DATA}}
+
+    获赠金额：{{present_income.DATA}}
+  {{remark.DATA}}",
+  "deputy_industry": "",
+  "example": "",
+  "primary_industry": "",
+  "template_id": "HJx7LfqyL6CozGEOW60EVhqo4C-DKqlqW79ZKIdq0zQ",
+  "title": "红包通知"
+  },
+  {
+    "content": "{{first.DATA}}
+
+    领取人：{{toName.DATA}}
+  赠品：{{gift.DATA}}
+  领取时间：{{time.DATA}}
+  {{remark.DATA}}",
+  "deputy_industry": "",
+  "example": "",
+  "primary_industry": "",
+  "template_id": "JrUjHzNfzRgRvzbc8xn9qKWmqHFIqAckJZepMh0Z7m4",
+  "title": "领取成功通知"
+  },
+  {
+    "content": "{{first.DATA}}
+    账单月份：{{keyword1.DATA}}
+  累计收益：{{keyword2.DATA}}
+  累计充值：{{keyword3.DATA}}
+  累计提现：{{keyword4.DATA}}
+  累计手续费：{{keyword5.DATA}}
+  {{remark.DATA}}",
+  "deputy_industry": "",
+  "example": "",
+  "primary_industry": "",
+  "template_id": "brrlfcBjkp0C3K7IKTCZaiANOKHTwAH6-GzCQtq78TA",
+  "title": "个人理财账单通知"
+  },
+  {
+    "content": "{{first.DATA}}
+    变动前额度：{{keyword1.DATA}}
+  变动后额度：{{keyword2.DATA}}
+  生效时间：{{keyword3.DATA}}
+  {{remark.DATA}}",
+  "deputy_industry": "",
+  "example": "",
+  "primary_industry": "",
+  "template_id": "kSM-l-0ymh6h5iIofCWBoPesBGPnImjGh1NRbv7Arp0",
+  "title": "额度生效通知"
+  }
+]
