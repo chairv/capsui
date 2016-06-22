@@ -30,43 +30,42 @@
 <!-- Page Content -->
 <div class="container">
     <!-- Page Heading -->
-    <div class="row">
-        <!--{{access_token}}-->
+    <div class="row" ui-view>
+        {{access_token}}
     </div>
+    <!--<div class="row" ng-if="access_token == null" ui-view="register">-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.row &ndash;&gt;-->
+    <!--&lt;!&ndash; Projects Row &ndash;&gt;-->
+    <!--<div class="row" ng-if="access_token != null">-->
+        <!--<table class="table table-hover">-->
+            <!--<colgroup>-->
+                <!--<col width="20%"/>-->
+                <!--<col width="20%"/>-->
+                <!--<col width="55%"/>-->
+                <!--<col width="5%"/>-->
+            <!--</colgroup>-->
 
-    <div class="row" ng-if="access_token == null" ui-view="register">
-    </div>
-    <!-- /.row -->
-    <!-- Projects Row -->
-    <div class="row" ng-if="access_token != null">
-        <table class="table table-hover">
-            <colgroup>
-                <col width="20%"/>
-                <col width="20%"/>
-                <col width="55%"/>
-                <col width="5%"/>
-            </colgroup>
-
-            <thead>
-            <tr>
-                <th>模板ID</th>
-                <th>模板标题</th>
-                <th>模板内容</th>
-                <th>more</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="content in contents">
-                <td>{{content.template_id}}</td>
-                <td>{{content.title}}</td>
-                <td>{{content.content}}</td>
-                <td>
-                    <i class="icon iconfont go_run">&#xe7db;</i>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+            <!--<thead>-->
+            <!--<tr>-->
+                <!--<th>模板ID</th>-->
+                <!--<th>模板标题</th>-->
+                <!--<th>模板内容</th>-->
+                <!--<th>more</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr ng-repeat="content in contents">-->
+                <!--<td>{{content.template_id}}</td>-->
+                <!--<td>{{content.title}}</td>-->
+                <!--<td>{{content.content}}</td>-->
+                <!--<td>-->
+                    <!--<i class="icon iconfont go_run">&#xe7db;</i>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
+    <!--</div>-->
     <!-- /.row -->
 </div>
 <!-- /.container -->
