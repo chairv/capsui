@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.capsui.bean.JsonResult;
+import com.capsui.bean.Temp;
 import com.capsui.bean.TempFlow;
 import com.capsui.service.TempFlowService;
 import com.capsui.weixin.API.TempAPI;
@@ -20,30 +21,38 @@ import com.capsui.weixin.API.TempAPI;
  * Created by tancw on 2016/6/21.
  */
 @Controller
+@RequestMapping("flow")
 public class TempFlowController {
 
-	@Autowired
-	private TempFlowService tempFlowService;
+    @Autowired
+    private TempFlowService tempFlowService;
 
-	@RequestMapping(value = "loadUserTemp")
-	@ResponseBody
-	public JsonResult register(@RequestParam("access_token") String access_token) {
-		String temps = TempAPI.getTemps(access_token);
-		JSONObject js = (JSONObject) JSONObject.parse(temps);
-		if (js.getInteger("errcode") != null) {
-			return new JsonResult(js.getInteger("errcode"), js.getString("errmsg"));
-		}
-		List<TempFlow> tempFlows =  JSONArray.parseArray(js.getString("template_list"),TempFlow.class);
-		// new Thread(new Runnable() {
-		// @Override
-		// public void run() {
-		for (TempFlow flow : tempFlows) {
-			flow.setAccess_token(access_token);
-			flow.setCreateTime(new Date());
-			tempFlowService.saveOrUpdate(flow);
-		}
-		// }
-		// }).start();
-		return new JsonResult(1, tempFlows);
-	}
+    @RequestMapping(value = "loadUserTemp")
+    @ResponseBody
+    public JsonResult register(@RequestParam("access_token") String access_token) {
+        String temps = TempAPI.getTemps(access_token);
+        JSONObject js = (JSONObject) JSONObject.parse(temps);
+        if (js.getInteger("errcode") != null) {
+            return new JsonResult(js.getInteger("errcode"), js.getString("errmsg"));
+        }
+        List<TempFlow> tempFlows = JSONArray.parseArray(js.getString("template_list"), TempFlow.class);
+        // new Thread(new Runnable() {
+        // @Override
+        // public void run() {
+        for (TempFlow flow : tempFlows) {
+            flow.setAccess_token(access_token);
+            flow.setCreateTime(new Date());
+            tempFlowService.saveOrUpdate(flow);
+        }
+        // }
+        // }).start();
+        return new JsonResult(1, tempFlows);
+    }
+
+    @RequestMapping("list")
+    @ResponseBody
+    public JsonResult list() {
+        List<Temp> rslst = tempFlowService.list();
+        return new JsonResult(1, rslst);
+    }
 }

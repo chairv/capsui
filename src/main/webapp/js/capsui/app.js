@@ -13,8 +13,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 $scope.menus = response;
             });
 
-            $http.get("../../json/content.json").success(function (response) {
-                $scope.contents = response;
+            $http.get("/flow/list.do").success(function (response) {
+                $scope.contents = response.data;
             });
         }
     }).state("test", {
@@ -48,7 +48,7 @@ app.factory('capsuiScope', function ($http) {
         return new Date(s);
     };
     base.getTokenTemp = function (token) {
-        $http.get("/loadUserTemp.do?access_token=" + token).success(function (response) {
+        $http.get("/flow/loadUserTemp.do?access_token=" + token).success(function (response) {
             if (response.success == 1) {
                 base.selfTemps = response.data;
             }
@@ -84,7 +84,7 @@ app.controller('register', function ($scope, $http, $cookies, $rootScope, $state
     $scope.submit = function () {
         $scope.list = {};
         $scope.list.access_token = this.access_token;
-        $http.get("/loadUserTemp.do?access_token=" + this.access_token).success(function (response) {
+        $http.get("/flow/loadUserTemp.do?access_token=" + this.access_token).success(function (response) {
             console.info(response);
             if (response.success == 1) {
                 $cookies.put("access_token", $scope.list.access_token, capsuiScope.addHour(new Date(), 2));
