@@ -1,12 +1,16 @@
 package com.capsui.web.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.capsui.bean.JsonResult;
+import com.capsui.bean.MsgTemp;
 import com.capsui.weixin.API.TempAPI;
 
 /**
@@ -14,10 +18,17 @@ import com.capsui.weixin.API.TempAPI;
  */
 @Controller
 public class RegisterController {
-	@RequestMapping("register")
+
+	@RequestMapping(value = "register")
 	@ResponseBody
-	public JsonResult register(@RequestParam("openId") String openId, @RequestParam("access_token") String access_token,Model model) {
+	public JsonResult register(@RequestParam("access_token") String access_token) {
         String temps = TempAPI.getTemps(access_token);
-		return new JsonResult(1, temps);
+		JSONObject js = (JSONObject) JSONObject.parse(temps);
+		if(js.getInteger("errcode") != null){
+          return new JsonResult(js.getInteger("errcode"),js.getString("errmsg"));
+		}
+		List<MsgTemp> result = (List<MsgTemp>) JSONArray.parse(js.getString("template_list"));
+
+		return new JsonResult(1, null);
 	}
 }

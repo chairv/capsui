@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by qiao on 2016/6/17.
  */
-public class MsgTemp implements Serializable {
+public class MsgTemp  extends BaseResult implements Serializable{
     private String id;
     private String template_id;
     private String title;

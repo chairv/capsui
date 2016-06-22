@@ -47,13 +47,14 @@
                     <a ui-sref="index" class="icon iconfont icon-18 active">&#xe602;首页</a>
                 </li>
                 <li>
-                    <a ui-sref="test" class="icon iconfont icon-18">&#xe601;测试</a>
+                    <a ui-sref="getToken" class="icon iconfont icon-18" ng-if="access_token == null">&#xe601;测试</a>
+                    <a ui-sref="test" class="icon iconfont icon-18" ng-if="access_token != null">&#xe601;测试</a>
                 </li>
                 <li>
-                    <a ui-sref="#" class="icon iconfont icon-18">&#xe65f;</a>
+                    <a class="icon iconfont icon-18">&#xe65f;</a>
                 </li>
                 <li>
-                    <a ui-sref="#" class="icon iconfont icon-20" ng-click="managerTk()">&#xe604;</a>
+                    <a class="icon iconfont icon-20" ng-click="managerTk()">&#xe604;</a>
                 </li>
             </ul>
         </div>
@@ -66,6 +67,7 @@
 
 <!-- jQuery -->
 <script src="../../js/jquery.js"></script>
+<script src="../../js/layer/layer.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/angular.min.js"></script>
