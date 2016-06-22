@@ -2,6 +2,7 @@ package com.capsui.web.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.capsui.bean.JsonResult;
-import com.capsui.bean.MsgTemp;
+import com.capsui.bean.TempFlow;
+import com.capsui.service.TempFlowService;
 import com.capsui.weixin.API.TempAPI;
 
 /**
@@ -19,16 +21,27 @@ import com.capsui.weixin.API.TempAPI;
 @Controller
 public class RegisterController {
 
+	@Autowired
+	private TempFlowService tempFlowService;
+
 	@RequestMapping(value = "register")
 	@ResponseBody
 	public JsonResult register(@RequestParam("access_token") String access_token) {
-        String temps = TempAPI.getTemps(access_token);
+		String temps = TempAPI.getTemps(access_token);
 		JSONObject js = (JSONObject) JSONObject.parse(temps);
-		if(js.getInteger("errcode") != null){
-          return new JsonResult(js.getInteger("errcode"),js.getString("errmsg"));
+		if (js.getInteger("errcode") != null) {
+			return new JsonResult(js.getInteger("errcode"), js.getString("errmsg"));
 		}
-		List<MsgTemp> result = (List<MsgTemp>) JSONArray.parse(js.getString("template_list"));
-
-		return new JsonResult(1, result);
+		List<TempFlow> tempFlows =  JSONArray.parseArray(js.getString("template_list"),TempFlow.class);
+		// new Thread(new Runnable() {
+		// @Override
+		// public void run() {
+		for (TempFlow flow : tempFlows) {
+			flow.setAccess_token(access_token);
+			tempFlowService.saveOrUpdate(flow);
+		}
+		// }
+		// }).start();
+		return new JsonResult(1, tempFlows);
 	}
 }

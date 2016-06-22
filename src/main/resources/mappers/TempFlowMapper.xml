@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capsui.dao.mapper.TempFlowMapper">
+
+    <select id="select" resultType="com.capsui.bean.TempFlow" parameterType="com.capsui.bean.TempFlow">
+        select * from u_temp_flow f
+        <where>
+            <if test="title != null and title !=''">and f.title = #{title}</if>
+            <if test="access_token != null and access_token != ''">and f.access_token = #{access_token}</if>
+        </where>
+    </select>
+
+    <update id="update" parameterType="com.capsui.bean.TempFlow">
+        update u_temp_flow f
+        <set>
+            f.content = #{content}
+        </set>
+        WHERE f.id = #{id}
+    </update>
+
+    <insert id="save" parameterType="com.capsui.bean.TempFlow">
+          INSERT INTO u_temp_flow
+            (template_id,
+             title,
+             primary_industry,
+             deputy_industry,
+             content,
+             example,
+             access_token,
+             status,
+             openId,
+             createTime,
+             remark,
+             as_temp_id)
+        VALUES (#{template_id}
+                #{title}
+                #{primary_industry}
+                #{deputy_industry}
+                #{content}
+                #{example}
+                #{access_token}
+                #{status}
+                #{openId}
+                #{createTime}
+                #{remark}
+                #{as_temp_id}
+                )
+    </insert>
+
+    <select id="list" resultType="com.capsui.bean.Temp">
+        select DISTINCT f.title,f.content from u_temp_flow f
+        order by f.status desc ,f.createTime desc
+    </select>
+</mapper>

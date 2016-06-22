@@ -5,7 +5,6 @@ var app = angular.module('app', ["ngCookies", "ui.router"]);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("index");
-
     $stateProvider.state("index", {
         url: "",
         templateUrl: "resources/html/index.html",
@@ -28,13 +27,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: "",
         templateUrl: "resources/html/register.html"
     });
-}).run(function ($cookies, $rootScope,$state,capsuiScope) {
+}).run(function ($cookies, $rootScope,$state,capsuiScope,$http) {
     var token = $cookies.get('access_token');
     $rootScope.access_token = token;
     $state.go('index');
     if(token != null){
         capsuiScope.getTokenTemp(token);
     }
+    $http.get("../../json/errorcode.json").success(function (response) {
+        capsuiScope.esg = response;
+    });
 });
 
 
@@ -90,7 +92,7 @@ app.controller('register', function ($scope, $http, $cookies, $rootScope, $state
                 capsuiScope.selfTemps = response.data;
                 $state.go("test");
             } else {
-                $scope.result = response.data;
+                $scope.result = capsuiScope.esg[response.success] + ' , '+ response.data;
             }
         });
     }

@@ -8,7 +8,9 @@
     <div class="form-group">
         <label for="toekn" class="col-sm-2 control-label">access_token: </label>
         <div class="col-sm-6">
-            <textarea type="text" class="form-control" id="toekn" placeholder="access_token" ng-model="access_token" cols="8"></textarea>
+            <textarea type="text" class="form-control" ng-trim="boolean" required="string" ng-minlength="130"
+                      placeholder="access_token" ng-model="access_token" cols="8"
+            ></textarea>
         </div>
     </div>
     <div class="form-group">

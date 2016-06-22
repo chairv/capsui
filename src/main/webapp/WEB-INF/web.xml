@@ -8,7 +8,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:spring-servlet.xml
+            classpath:spring-all.xml
         </param-value>
     </context-param>
 
