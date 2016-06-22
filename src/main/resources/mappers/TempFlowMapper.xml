@@ -32,17 +32,17 @@
              createTime,
              remark,
              as_temp_id)
-        VALUES (#{template_id}
-                #{title}
-                #{primary_industry}
-                #{deputy_industry}
-                #{content}
-                #{example}
-                #{access_token}
-                #{status}
-                #{openId}
-                #{createTime}
-                #{remark}
+        VALUES (#{template_id},
+                #{title},
+                #{primary_industry},
+                #{deputy_industry},
+                #{content},
+                #{example},
+                #{access_token},
+                #{status},
+                #{openId},
+                #{createTime},
+                #{remark},
                 #{as_temp_id}
                 )
     </insert>

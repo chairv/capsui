@@ -1,5 +1,6 @@
 package com.capsui.web.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,12 @@ import com.capsui.weixin.API.TempAPI;
  * Created by tancw on 2016/6/21.
  */
 @Controller
-public class RegisterController {
+public class TempFlowController {
 
 	@Autowired
 	private TempFlowService tempFlowService;
 
-	@RequestMapping(value = "register")
+	@RequestMapping(value = "loadUserTemp")
 	@ResponseBody
 	public JsonResult register(@RequestParam("access_token") String access_token) {
 		String temps = TempAPI.getTemps(access_token);
@@ -38,6 +39,7 @@ public class RegisterController {
 		// public void run() {
 		for (TempFlow flow : tempFlows) {
 			flow.setAccess_token(access_token);
+			flow.setCreateTime(new Date());
 			tempFlowService.saveOrUpdate(flow);
 		}
 		// }

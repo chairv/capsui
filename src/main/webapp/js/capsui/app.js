@@ -48,7 +48,7 @@ app.factory('capsuiScope', function ($http) {
         return new Date(s);
     };
     base.getTokenTemp = function (token) {
-        $http.get("/register.do?access_token=" + token).success(function (response) {
+        $http.get("/loadUserTemp.do?access_token=" + token).success(function (response) {
             if (response.success == 1) {
                 base.selfTemps = response.data;
             }
@@ -84,7 +84,7 @@ app.controller('register', function ($scope, $http, $cookies, $rootScope, $state
     $scope.submit = function () {
         $scope.list = {};
         $scope.list.access_token = this.access_token;
-        $http.get("/register.do?access_token=" + this.access_token).success(function (response) {
+        $http.get("/loadUserTemp.do?access_token=" + this.access_token).success(function (response) {
             console.info(response);
             if (response.success == 1) {
                 $cookies.put("access_token", $scope.list.access_token, capsuiScope.addHour(new Date(), 2));

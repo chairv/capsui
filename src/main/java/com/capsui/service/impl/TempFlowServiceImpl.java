@@ -16,21 +16,21 @@ import com.capsui.service.TempFlowService;
 @Service
 public class TempFlowServiceImpl implements TempFlowService {
 	@Autowired
-	private TempFlowMapper mapper;
+	private TempFlowMapper tempFlowMapper;
 
 	@Override
 	public int saveOrUpdate(TempFlow flow) {
-		TempFlow oldFlow = mapper.select(flow);
+		TempFlow oldFlow = tempFlowMapper.select(flow);
 		if (oldFlow != null) {
 			flow.setId(oldFlow.getId());
-			return mapper.update(flow);
+			return tempFlowMapper.update(flow);
 		} else {
-			return mapper.save(flow);
+			return tempFlowMapper.save(flow);
 		}
 	}
 
 	@Override
 	public List<Temp> list() {
-		return mapper.list();
+		return tempFlowMapper.list();
 	}
 }
