@@ -1,21 +1,33 @@
 /**
  * Created by tancw on 2016/6/20.
  */
-var app = angular.module('app', ["ngCookies"]);
+var app = angular.module('app', ["ngCookies","ui.router"]);
+
+
+app.config(function ($stateProvider,$urlRouterProvider) {
+    $urlRouterProvider.otherwise("index");
+
+    $stateProvider.state("index",{
+        url:"",
+        templateUrl:"index.html",
+        controller:function ($scope,$http) {
+            $http.get("../../json/leftMenu.json").success(function (response) {
+                $scope.menus = response;
+            });
+
+            $http.get("../../json/content.json").success(function (response) {
+                $scope.contents = response;
+            });
+        }
+    }).state("test",{
+        url:"",
+        templateUrl:"test.html"
+    });
+});
+
 
 app.controller("myIndex", function ($scope, $http, $cookies,$location,$rootScope) {
-    $http.get("../../json/leftMenu.json").success(function (response) {
-        $scope.menus = response;
-    });
 
-    $http.get("../../json/content.json").success(function (response) {
-        $scope.contents = response;
-    }).error(function (data, status, headers, config) {
-        console.info(data);
-    });
-    var path = $location.absUrl(); // will tell you the current path
-    path = path.substr(0,path.lastIndexOf('/'))
-    $rootScope.path = path;
 });
 
 app.controller('nav', function ($cookies, $scope) {

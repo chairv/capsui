@@ -44,16 +44,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href=".index.html" class="icon iconfont icon-18 active">&#xe602;首页</a>
+                    <a ui-sref="index" class="icon iconfont icon-18 active">&#xe602;首页</a>
                 </li>
                 <li>
-                    <a href=".test.html" class="icon iconfont icon-18">&#xe601;测试</a>
+                    <a ui-sref="test" class="icon iconfont icon-18">&#xe601;测试</a>
                 </li>
                 <li>
-                    <a href="#" class="icon iconfont icon-18">&#xe65f;</a>
+                    <a ui-sref="#" class="icon iconfont icon-18">&#xe65f;</a>
                 </li>
                 <li>
-                    <a href="#" class="icon iconfont icon-20" ng-click="managerTk()">&#xe604;</a>
+                    <a ui-sref="#" class="icon iconfont icon-20" ng-click="managerTk()">&#xe604;</a>
                 </li>
             </ul>
         </div>
@@ -62,8 +62,7 @@
     <!-- /.container -->
 </nav>
 
-<!--<div class="container"></div>-->
-<ng-view></ng-view>
+<div class="container" ui-view></div>
 
 <!-- jQuery -->
 <script src="../../js/jquery.js"></script>
@@ -71,7 +70,7 @@
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/angular.min.js"></script>
 <script src="../../js/angular-cookies.min.js"></script>
-<script src="../../js/angular-route.js"></script>
+<script src="../../js/angular-ui-router.min.js"></script>
 <script src="../../js/capsui/app.js"></script>
 </body>
 

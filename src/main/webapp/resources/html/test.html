@@ -25,9 +25,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
 <body>
-<div ng-include="'resources/html/nav.html'"></div>
 
 <!-- Page Content -->
 <div class="container">
@@ -36,7 +34,7 @@
         <!--{{access_token}}-->
     </div>
 
-    <div class="row" ng-if="access_token == null" ng-include="'resources/html/register.html'">
+    <div class="row" ng-if="access_token == null" ui-view="register">
     </div>
     <!-- /.row -->
     <!-- Projects Row -->
@@ -82,5 +80,4 @@
 <script src="../../js/capsui/app.js"></script>
 
 </body>
-
 </html>
