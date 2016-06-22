@@ -29,6 +29,6 @@ public class RegisterController {
 		}
 		List<MsgTemp> result = (List<MsgTemp>) JSONArray.parse(js.getString("template_list"));
 
-		return new JsonResult(1, null);
+		return new JsonResult(1, result);
 	}
 }
