@@ -75,8 +75,8 @@ app.controller('LoginController',function ($scope, $rootScope, AUTH_EVENTS, Auth
        username:'',
        password:''
    };
-    $scope.login = function (credentials) {
-        AuthService.login(credentials).then(function (user) {
+    $scope.login = function () {
+        AuthService.login($.param($scope.credentials)).then(function (user) {
             $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
             $scope.setCurrentUser(user)
         },function () {
