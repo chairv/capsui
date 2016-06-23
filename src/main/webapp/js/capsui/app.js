@@ -25,7 +25,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     }).state("getToken", {
         url: "",
-        templateUrl: "resources/html/register.html"
+        templateUrl: "resources/html/tokenfresh.html"
     });
 }).run(function ($cookies, $rootScope,$state,capsuiScope,$http) {
     var token = $cookies.get('access_token');
@@ -80,7 +80,7 @@ app.controller("nav", function ($scope, $cookies,$state,$rootScope) {
     }
 });
 
-app.controller('register', function ($scope, $http, $cookies, $rootScope, $state, capsuiScope) {
+app.controller('tokenfresh', function ($scope, $http, $cookies, $rootScope, $state, capsuiScope) {
     $scope.submit = function () {
         $scope.list = {};
         $scope.list.access_token = this.access_token;
