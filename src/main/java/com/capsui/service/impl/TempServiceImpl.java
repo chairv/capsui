@@ -35,7 +35,7 @@ public class TempServiceImpl implements TempService {
 
 	@Override
 	public int count(Map<String, Object> param) {
-		return tempMapper.count(param);
+		return tempMapper.getCount(param);
 	}
 
 }

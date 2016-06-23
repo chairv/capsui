@@ -6,10 +6,6 @@
 
     </select>
 
-    <select id="count" resultType="com.capsui.bean.Temp" parameterType="map">
-
-    </select>
-
     <select id="selectByTitleContent" resultType="com.capsui.bean.Temp">
        select * from m_temp m where m.title = #{title} and m.content = #{content}
     </select>

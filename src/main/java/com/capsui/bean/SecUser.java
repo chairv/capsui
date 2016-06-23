@@ -7,7 +7,6 @@ public class SecUser {
 	private long id;
 	private String username;
 	private String password;
-	private long userId;
 
 	public long getId() {
 		return id;
@@ -31,13 +30,5 @@ public class SecUser {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(long userId) {
-		this.userId = userId;
 	}
 }
