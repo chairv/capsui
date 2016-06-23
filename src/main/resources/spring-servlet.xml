@@ -24,5 +24,10 @@
     <context:component-scan base-package="com.capsui.web"/>
     <context:component-scan base-package="com.capsui.service.*"/>
 
-    <bean id="localResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+    <mvc:interceptors>
+        <!-- 国际化操作拦截器 如果采用基于（请求/Session/Cookie）则必需配置 -->
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+        <!-- 如果不定义 mvc:mapping path 将拦截所有的URL请求 -->
+        <bean class="com.capsui.secure.auth.AuthInterceptor"></bean>
+    </mvc:interceptors>
 </beans>

@@ -2,7 +2,7 @@
  * Created by tancw on 2016/6/20.
  */
 var app = angular.module('app', ["ngCookies", "ui.router"]);
-
+//业务路由及初始化
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("index");
     $stateProvider.state("index", {
@@ -26,6 +26,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     }).state("getToken", {
         url: "",
         templateUrl: "resources/html/tokenfresh.html"
+    }).state("login",{
+        url:"",
+        templateUrl: "resources/html/login.html"
     });
 }).run(function ($cookies, $rootScope,$state,capsuiScope,$http) {
     var token = $cookies.get('access_token');
@@ -39,7 +42,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     });
 });
 
-
+//公共service
 app.factory('capsuiScope', function ($http) {
     var base = {};
     base.addHour = function (date, hours) {
@@ -61,6 +64,7 @@ app.controller("myIndex", function ($scope, $http) {
 
 });
 
+//导航条
 app.controller("nav", function ($scope, $cookies,$state,$rootScope) {
     $scope.managerTk = function () {
         var token = $cookies.get('access_token');
@@ -80,6 +84,7 @@ app.controller("nav", function ($scope, $cookies,$state,$rootScope) {
     }
 });
 
+//刷新totken页面
 app.controller('tokenfresh', function ($scope, $http, $cookies, $rootScope, $state, capsuiScope) {
     $scope.submit = function () {
         $scope.list = {};

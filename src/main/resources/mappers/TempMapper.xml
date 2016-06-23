@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capsui.dao.mapper.TempMapper">
+
+    <select id="select" resultType="com.capsui.bean.Temp" parameterType="map">
+
+    </select>
+
+    <select id="count" resultType="com.capsui.bean.Temp" parameterType="map">
+
+    </select>
+
+    <select id="selectByTitleContent" resultType="com.capsui.bean.Temp">
+       select * from m_temp m where m.title = #{title} and m.content = #{content}
+    </select>
+
+    <insert id="save" parameterType="com.capsui.bean.Temp" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO  m_temp
+            (title,
+             primary_industry,
+             deputy_industry,
+             content,
+             example,
+             remark,
+             createTime,
+             status)
+            VALUES (#{title},
+                    #{primary_industry},
+                    #{deputy_industry},
+                    #{content},
+                    #{example},
+                    #{remark},
+                    #{createTime},
+                    #{status})
+    </insert>
+
+</mapper>

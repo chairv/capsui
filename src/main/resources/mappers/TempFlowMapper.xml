@@ -6,14 +6,20 @@
         select * from u_temp_flow f
         <where>
             <if test="title != null and title !=''">and f.title = #{title}</if>
-            <if test="access_token != null and access_token != ''">and f.access_token = #{access_token}</if>
+            <if test="content != null and content !=''">and f.content = #{content}</if>
+            <if test="userId != null and userId != ''">and f.userId = #{userId}</if>
         </where>
     </select>
 
     <update id="update" parameterType="com.capsui.bean.TempFlow">
         update u_temp_flow f
         <set>
-            f.content = #{content}
+           <if test="as_temp_id != null and as_temp_id">
+               f.as_temp_id  = #{as_temp_id}
+            </if>
+           <if test="access_token != null">
+               and f.access_token = #{access_token}
+           </if>
         </set>
         WHERE f.id = #{id}
     </update>
@@ -28,7 +34,7 @@
              example,
              access_token,
              status,
-             openId,
+             userId,
              createTime,
              remark,
              as_temp_id)
@@ -40,7 +46,7 @@
                 #{example},
                 #{access_token},
                 #{status},
-                #{openId},
+                #{userId},
                 #{createTime},
                 #{remark},
                 #{as_temp_id}

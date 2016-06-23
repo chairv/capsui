@@ -1,6 +1,7 @@
 package com.capsui.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by qiao on 2016/6/17.
@@ -13,6 +14,21 @@ public class Temp implements Serializable {
 	private String content;
 	private String example;
 	private String remark;
+	private Date createTime;
+	private int status;
+
+	public Temp() {
+	}
+
+	public Temp(TempFlow flow) {
+		this.title = flow.getTitle();
+		this.primary_industry = flow.getPrimary_industry();
+		this.deputy_industry = flow.getDeputy_industry();
+		this.content = flow.getContent();
+		this.example = flow.getExample();
+		this.createTime = new Date();
+		this.status = 0;
+	}
 
 	public String getId() {
 		return id;
@@ -68,5 +84,21 @@ public class Temp implements Serializable {
 
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 }

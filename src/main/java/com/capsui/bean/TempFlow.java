@@ -15,7 +15,7 @@ public class TempFlow {
 	private String example;
 	private String access_token;
 	private int status;
-	private String openId;
+	private long userId;
 	private Date createTime;
 	private String remark;
 	private String as_temp_id;
@@ -65,7 +65,7 @@ public class TempFlow {
 	}
 
 	public void setContent(String content) {
-		this.content = content;
+		this.content = content.trim();
 	}
 
 	public String getExample() {
@@ -92,12 +92,12 @@ public class TempFlow {
 		this.status = status;
 	}
 
-	public String getOpenId() {
-		return openId;
+	public long getUserId() {
+		return userId;
 	}
 
-	public void setOpenId(String openId) {
-		this.openId = openId;
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 
 	public Date getCreateTime() {
